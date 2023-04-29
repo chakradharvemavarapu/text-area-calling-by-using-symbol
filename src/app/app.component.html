@@ -1,0 +1,19 @@
+<div class="align-center textar">
+  <form #tdf="ngForm"  (keyup)="onKeyUp($event)">
+    <div>
+      <textarea [(ngModel)]="textValue" name="textValue"></textarea>
+      <div class="main">
+        <ul *ngIf="showSuggestions">
+          <li *ngFor="let suggestion of filteredSuggestions; let i = index" [class.selected]="i === currentIndex"
+            (mousedown)="selectSuggestion(suggestion)">
+            {{ suggestion }}
+          </li>
+        </ul>
+      </div>
+      <br>
+      <button type="button" (click)="Add(tdf)" class="btn btn-outline-warning">+ Add Note</button>&nbsp;&nbsp;&nbsp;
+      <button type="reset" class="btn btn-outline-warning">Reset</button>
+    </div>
+  </form>
+</div>
+
